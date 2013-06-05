@@ -322,7 +322,8 @@ Blockly.Block.prototype.getRelativeToSurfaceXY = function() {
 Blockly.Block.prototype.moveBy = function(dx, dy) {
   var xy = this.getRelativeToSurfaceXY();
   this.svg_.getRootElement().setAttribute('transform',
-      'translate(' + (xy.x + dx) + ', ' + (xy.y + dy) + ')');
+     // 'translate(' + (xy.x + dx) + ', ' + (xy.y + dy) + ')');
+	 'translate(' + (xy.x ) + ', ' + (xy.y + dy) + ')');             //solves the scrollbar shifting problem
   this.moveConnections_(dx, dy);
 };
 
