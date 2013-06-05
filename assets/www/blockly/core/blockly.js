@@ -230,9 +230,10 @@ Blockly.svgResize = function() {
  * Handle a mouse-down on SVG drawing surface.
  * @param {!Event} e Mouse down event.
  * @private
+ removes the function(onMousedown_) for background dragging problem
  */
 Blockly.onMouseDown_ = function(e) {
-  Blockly.Block.terminateDrag_(); // In case mouse-up event was lost.
+  /*Blockly.Block.terminateDrag_(); // In case mouse-up event was lost.
   Blockly.hideChaff();
   var isTargetSvg = e.target && e.target.nodeName &&
       e.target.nodeName.toLowerCase() == 'svg';
@@ -256,7 +257,7 @@ Blockly.onMouseDown_ = function(e) {
         Blockly.getMainWorkspaceMetrics();
     Blockly.mainWorkspace.startScrollX = Blockly.mainWorkspace.scrollX;
     Blockly.mainWorkspace.startScrollY = Blockly.mainWorkspace.scrollY;
-  }
+  }*/
 };
 
 /**
@@ -264,6 +265,7 @@ Blockly.onMouseDown_ = function(e) {
  * @param {!Event} e Mouse up event.
  * @private
  */
+ 
 Blockly.onMouseUp_ = function(e) {
   Blockly.setCursorHand_(false);
   Blockly.mainWorkspace.dragMode = false;

@@ -1,0 +1,3 @@
+1. Added closure library
+2. Removed the scrollbar shifting problem in core(block.js) : Line no-325 
+3. Removed the background dragging problem in core(blockly.js): Line no-236 to 260
