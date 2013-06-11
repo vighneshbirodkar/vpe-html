@@ -10,6 +10,22 @@
   <!-- cordova-2.7.0.js script file included to use fileWrite functions defined in it. -->
   
     <script type="text/javascript" charset="utf-8">
+	
+//Function to call the toolbox	
+	function callMe()
+{
+Blockly.Toolbox.svgGroup_.style.display = Blockly.Toolbox.svgGroup_.style.display == 'none' ? 'block':'none';
+alert("Hide/Unhide Blocks");
+}
+
+// function to copy arduino code
+
+function copyArduino()
+{
+var x= document.getElementById('textarea_arduino');
+alert(x.value);
+}
+
 
     // Wait for Cordova to load
     
@@ -145,13 +161,6 @@ function renderContent() {
 }
 
 
-// function to copy arduino code
-
-function copyArduino()
-{
-var x= document.getElementById('textarea_arduino');
-alert(x.value);
-}
 
 
 /**
@@ -189,8 +198,8 @@ function init(blockly) {
   </script>
   <style>
     body {
-      background-color: white;
-      font-family: sans-serif;
+      background-color: green;
+      font-family: Lucida Calligraphy;
       margin: 0;
       padding:0;
       overflow: hidden;
@@ -275,7 +284,7 @@ function init(blockly) {
       font-size: 90%;
       border-radius: 4px;
       border: 1px solid #ddd;
-      background-color: #eee;
+      background-color: #00a;
       color: black;
     }
     button.launch {
@@ -292,12 +301,7 @@ function init(blockly) {
   </style>
 </head>
 <body>
-  <table height="100%" width="100%">
-    <tr>
-      <td>
-        <h1><a href="https://github.com/gasolin/BlocklyDuino/wiki">BlocklyDuino</a> &gt; web-based visual programming editor for arduino</h1>
-      </td>
-    </tr>
+
     <tr>
       <td>
         <table>
@@ -313,8 +317,10 @@ function init(blockly) {
             <td id="tab_arduino" class="taboff" onclick="tabClick(this.id)">Arduino</td>
             <td class="tabmin">&nbsp;</td>
             <td id="tab_xml" class="taboff" onclick="tabClick(this.id)">XML</td>
-            <td class="tabmax">
-              <button onclick="discard()">Discard</button>
+            <td class="tabmin"> 
+			   <button onclick ='callMe()' >Hide/Unhide_Blocks!!!!</button>
+			<td class="tabmax">
+		    <button onclick="discard()">Discard</button>
 	      <button onclick="copyArduino()">Copy Arduino Code</button>	<!-- button to copy Arduino code. -->
 		  <button onclick ="window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail)"> create file </button>
 		  <!-- button to copy arduino code to the file specified in the path variable in function gotFS() -->

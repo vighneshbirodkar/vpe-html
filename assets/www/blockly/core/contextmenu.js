@@ -36,7 +36,7 @@ Blockly.ContextMenu.X_PADDING = 20;
 /**
  * Vertical height of each option.
  */
-Blockly.ContextMenu.Y_HEIGHT = 20;
+Blockly.ContextMenu.Y_HEIGHT = 45;
 
 /**
  * Is a context menu currently showing?

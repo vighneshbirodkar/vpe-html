@@ -82,7 +82,7 @@
 }
 .blocklyText {
   cursor: default;
-  font-family: sans-serif;
+  font-family: Lucida Calligraphy; 
   font-size: 11pt;
   fill: #fff;
 }
@@ -128,7 +128,7 @@
   filter: url(#blocklyShadowFilter);
 }
 .blocklyTooltipText {
-  font-family: sans-serif;
+  font-family: Lucida Calligraphy;
   font-size: 9pt;
   fill: #000;
 }
@@ -214,10 +214,10 @@
   fill: #ccc;
 }
 .blocklyToolboxBackground {
-  fill: #ddd;
+  fill: #500;
 }
 .blocklyFlyoutBackground {
-  fill: #ddd;
+  fill: #005;
   fill-opacity: 0.8;
 }
 .blocklyColourBackground {
