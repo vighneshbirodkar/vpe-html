@@ -6,6 +6,41 @@
   <script type="text/javascript" src="Blob.js"></script>
   <script type="text/javascript" src="FileSaver.min.js"></script>
   <script type="text/javascript" src="blockly_helper.js"></script>
+  <script type="text/javascript" charset="utf-8" src="cordova-2.7.0.js"></script>
+  <!-- cordova-2.7.0.js script file included to use fileWrite functions defined in it. -->
+  
+    <script type="text/javascript" charset="utf-8">
+
+    // Wait for Cordova to load
+    
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+	// Cordova is ready
+   
+    function gotFS(fileSystem) {
+	var path = "/data/data/com.iitb.vpehtml/files/code/sketch.ino";
+        fileSystem.root.getFile(path, {create: true, exclusive: false}, gotFileEntry, fail);
+    }
+
+    function gotFileEntry(fileEntry) {
+        fileEntry.createWriter(gotFileWriter, fail);
+    }
+
+    function gotFileWriter(writer) {
+    
+	// variable x stores the arduino code in textarea_arduino and then writes it to the file specified in the path variable.
+	var x= document.getElementById('textarea_arduino');
+	alert(x.value);
+        writer.write(x.value);
+	//alert("File created successfully");
+    }
+
+    function fail(error) {
+        console.log(error.code);
+    }
+ 
+  </script>
+  
   <script>
   // Whitelist of blocks to keep.
   /*var newLanguage = {}
@@ -281,6 +316,8 @@ function init(blockly) {
             <td class="tabmax">
               <button onclick="discard()">Discard</button>
 	      <button onclick="copyArduino()">Copy Arduino Code</button>	<!-- button to copy Arduino code. -->
+		  <button onclick ="window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail)"> create file </button>
+		  <!-- button to copy arduino code to the file specified in the path variable in function gotFS() -->
               <button onclick="save()">Save XML</button>
               <button id="fakeload">Load XML</button>
               <input type="file" id="load" style="display: none;"/>
