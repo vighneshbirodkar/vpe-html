@@ -6,7 +6,7 @@
   <script type="text/javascript" src="Blob.js"></script>
   <script type="text/javascript" src="FileSaver.min.js"></script>
   <script type="text/javascript" src="blockly_helper.js"></script>
-  <script type="text/javascript" charset="utf-8" src="cordova-2.7.0.js"></script>
+  <!--<script type="text/javascript" charset="utf-8" src="cordova-2.7.0.js"></script>-->
   <!-- cordova-2.7.0.js script file included to use fileWrite functions defined in it. -->
   
     <script type="text/javascript" charset="utf-8">
@@ -198,7 +198,7 @@ function init(blockly) {
   </script>
   <style>
     body {
-      background-color: green;
+      background-color: #00a;
       font-family: Lucida Calligraphy;
       margin: 0;
       padding:0;
@@ -224,24 +224,28 @@ function init(blockly) {
       border-bottom-color: #ddd !important;
       background-color: #ddd;
       padding: 5px 19px;
+	  background-color: #b00;
+	  font-weight:bold;
     }
     td.taboff {
       cursor: pointer;
       padding: 5px 19px;
+	  background-color: #b00;
     }
     td.taboff:hover {
       background-color: #eee;
     }
-    td.tabmin {
+     td.tabmin {
       border-top-style: none !important;
       border-left-style: none !important;
       border-right-style: none !important;
-    }
+      text-align: left;
+   }
     td.tabmax {
       border-top-style: none !important;
       border-left-style: none !important;
       border-right-style: none !important;
-      width: 99%;
+      width: 100%;
       text-align: right;
     }
 
@@ -280,12 +284,17 @@ function init(blockly) {
       border-top-style: none;
     }
     button {
+	
       padding: 1px 1em;
       font-size: 90%;
       border-radius: 4px;
       border: 1px solid #ddd;
-      background-color: #00a;
+      background-color: #ddd;
       color: black;
+	  height:40px;
+	  width:50px;
+	  margin-left:10px;
+	  margin-right:20px;
     }
     button.launch {
       border: 1px solid #d43;
@@ -301,7 +310,12 @@ function init(blockly) {
   </style>
 </head>
 <body>
-
+<table height="100%" width="100%">
+    <tr>
+      <td>
+	  <h1><h2 align="center">BLOCKLYDUINO</h2>
+              </td>
+    </tr>
     <tr>
       <td>
         <table>
@@ -314,20 +328,26 @@ function init(blockly) {
             <td class="tabmin">&nbsp;</td>
             <td id="tab_python" class="taboff" onclick="tabClick(this.id)">Python</td>
             <td class="tabmin">&nbsp;</td-->
-            <td id="tab_arduino" class="taboff" onclick="tabClick(this.id)">Arduino</td>
+             <td id="tab_arduino" class="taboff" onclick="tabClick(this.id)">Arduino</td>
             <td class="tabmin">&nbsp;</td>
             <td id="tab_xml" class="taboff" onclick="tabClick(this.id)">XML</td>
-            <td class="tabmin"> 
-			   <button onclick ='callMe()' >Hide/Unhide_Blocks!!!!</button>
-			<td class="tabmax">
-		    <button onclick="discard()">Discard</button>
-	      <button onclick="copyArduino()">Copy Arduino Code</button>	<!-- button to copy Arduino code. -->
-		  <button onclick ="window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail)"> create file </button>
-		  <!-- button to copy arduino code to the file specified in the path variable in function gotFS() -->
-              <button onclick="save()">Save XML</button>
-              <button id="fakeload">Load XML</button>
-              <input type="file" id="load" style="display: none;"/>
+			<td class="tabmin"> 
+			   <button  style="background-image:url('./blocks1.png')"onclick ='callMe()' title="Hide/Unhide Toolbox" ></button>
+			    <td class="tabmax">
+			  <button style="background-image:url('./run.png')"  onclick="run()" title="Compile and Run Arduino Code"></button>
+            
+			  
+              <button  style="background-image:url('./save.png')" onclick="save()" title="Save XML code"></button>
+			  <td class="tabmax">
+			  <button  style="background-image:url('./keyboard.png')" onclick="save()" title="Want Keyboard!!!!!"></button>
+			  <td class="tabmax">
+              <!--<button  style="background-image:url('./load.png')" title="Load XML"id="fakeload"></button>
+              <input type="file" id="load" style="display: none;"/>-->
+			  <td class="tabmax"> 
+              <button style="background-image:url('./arduino2.png')" onclick="Arduino()" title="Edit Arduino Code"></button>
               <!--button class="launch" onclick="runJS()">Run Program</button-->
+			  <td class="tabmax">
+              <button style="background-image:url('./discard.png')" onclick="discard()" title="Discard all blocks"></button>
             </td>
           </tr>
         </table>

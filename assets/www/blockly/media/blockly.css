@@ -215,9 +215,10 @@
 }
 .blocklyToolboxBackground {
   fill: #500;
+   fill-opacity: 0.4;
 }
 .blocklyFlyoutBackground {
-  fill: #005;
+  fill: #0cc;
   fill-opacity: 0.8;
 }
 .blocklyColourBackground {
